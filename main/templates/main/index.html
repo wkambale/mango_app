@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mango Damage Detection</title>
+</head>
+<body>
+    <h1>Upload an Image of Mango to Detect Damage</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Detect</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
