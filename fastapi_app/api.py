@@ -10,8 +10,6 @@ app = FastAPI()
 # Load your TensorFlow model
 model = tf.keras.models.load_model('model/mango_model.h5')
 
-# Assuming the model has a method to return class names, or we define them based on training
-# Ensure that these are the actual class labels from your model training process.
 class_names = ["Anthracnose", "Bacterial-Black-spot", "Fruitly", "Healthy-mango", "Others"]
 
 @app.post("/predict/")
@@ -20,8 +18,8 @@ async def predict(file: UploadFile = File(...)):
         # Read the image file
         contents = await file.read()
         image = Image.open(io.BytesIO(contents))
-        image = image.resize((224, 224))  # Adjust size for your model
-        image_array = np.array(image) / 255.0  # Normalize if needed
+        image = image.resize((224, 224))
+        image_array = np.array(image) / 255.0 
         image_array = np.expand_dims(image_array, axis=0)  # Add batch dimension
 
         # Predict using the model

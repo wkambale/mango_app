@@ -55,7 +55,7 @@ python manage.py runserver
 In a separate terminal window, navigate to the project directory and run:
 
 ```bash
-uvicorn fastapi_app.api:app --reload
+uvicorn fastapi_app.api:app --reload --port 8001
 ```
 
 The FastAPI app will run at `http://127.0.0.1:8000`.
