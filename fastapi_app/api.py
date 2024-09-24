@@ -10,6 +10,10 @@ app = FastAPI()
 # Load your TensorFlow model
 model = tf.keras.models.load_model('model/mango_model.h5')
 
+# Assuming the model has a method to return class names, or we define them based on training
+# Ensure that these are the actual class labels from your model training process.
+class_names = ["Anthracnose", "Bacterial-Black-spot", "Fruitly", "Healthy-mango", "Others"]
+
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
     try:
@@ -22,9 +26,14 @@ async def predict(file: UploadFile = File(...)):
 
         # Predict using the model
         predictions = model.predict(image_array)
-        predicted_class = np.argmax(predictions, axis=1)
-        class_names = ["Anthracnose", "Bacterial-Black-spot", "Fruitly", "Healthy-mango", "Others"]
         
-        return JSONResponse(content={"prediction": class_names[predicted_class[0]]})
+        # Get the predicted class index with the highest score
+        predicted_class_index = np.argmax(predictions, axis=1)[0]
+        
+        # Retrieve the corresponding class name from the model's class names
+        predicted_class_name = class_names[predicted_class_index]
+        
+        return JSONResponse(content={"prediction": predicted_class_name})
+    
     except Exception as e:
         return JSONResponse(status_code=500, content={"detail": str(e)})

@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-*!#8az0zmi!izyommz+-%u1ho#)6)zv_9#=j=mv(h7goj2r5s4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1"]
 
@@ -46,7 +46,7 @@ ROOT_URLCONF = "mango_app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'main/templates'],
+        "DIRS": [BASE_DIR / 'main/templates/main'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
