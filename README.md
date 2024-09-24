@@ -15,7 +15,7 @@ This is a web application that detects damages on mangoes using a TensorFlow mod
 - Python 3.8 or above
 - Django 3.2+
 - FastAPI
-- TensorFlow 2.6+
+- TensorFlow 2.14+
 - Uvicorn (for running FastAPI)
 
 ## Installation
@@ -23,8 +23,8 @@ This is a web application that detects damages on mangoes using a TensorFlow mod
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/mango-damage-detection.git
-cd mango-damage-detection
+git clone https://github.com/your-username/mango-app.git
+cd mango-app
 ```
 ### Set up a virtual environment and activate it
 
@@ -58,7 +58,7 @@ In a separate terminal window, navigate to the project directory and run:
 uvicorn fastapi_app.api:app --reload --port 8001
 ```
 
-The FastAPI app will run at `http://127.0.0.1:8000`.
+The FastAPI app will run at `http://127.0.0.1:8001`.
 
 ### Access the application
 Open your browser and go to `http://127.0.0.1:8000/` to upload a mango image and get damage predictions.
@@ -71,7 +71,7 @@ Fork the repository: Click the "Fork" button at the top right of this page to co
 Clone your forked repository: Use the command below to clone the forked repository to your local machine.
 
 ```bash
-git clone https://github.com/your-username/mango-damage-detection.git
+git clone https://github.com/your-username/mango-app.git
 ```
 Create a new branch: It’s good practice to create a new branch for each feature or bug fix you’re working on.
 
