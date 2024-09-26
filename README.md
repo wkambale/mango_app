@@ -10,7 +10,7 @@ This is a web application that detects damages on mangoes using a TensorFlow mod
 - **TensorFlow**: Pre-trained model for mango damage classification.
 
 ## Resources
-- [Download the Model](https://bit.ly/pyconmodelh5)-
+- [Download the Model](https://bit.ly/pyconmodelh5)
 - [Colab Notebook](https://bit.ly/vgg19-model)
 - [Presentation Slides](https://speakerdeck.com/kambale/serving-machine-learning-models-in-django-with-fastapi)
   
