@@ -9,9 +9,12 @@ This is a web application that detects damages on mangoes using a TensorFlow mod
 - **FastAPI**: API for serving TensorFlow models and returning predictions.
 - **TensorFlow**: Pre-trained model for mango damage classification.
 
-
+## Resources
+- [Download the Model](https://bit.ly/pyconmodelh5)-
+- [Colab Notebook](https://bit.ly/vgg19-model)
+- [Presentation Slides](https://speakerdeck.com/kambale/serving-machine-learning-models-in-django-with-fastapi)
+  
 ## Requirements
-
 - Python 3.8 or above
 - Django 3.2+
 - FastAPI
