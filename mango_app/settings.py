@@ -16,7 +16,7 @@ SECRET_KEY = "django-insecure-*!#8az0zmi!izyommz+-%u1ho#)6)zv_9#=j=mv(h7goj2r5s4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,3 +118,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+FAST_API_DOCKER_HOST = "http://fastapi:8001"
