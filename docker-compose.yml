@@ -1,0 +1,28 @@
+services:
+  fastapi:
+    image: mango_fastapi
+    build:
+      context: fastapi_app/
+      dockerfile: fastapi.Dockerfile
+    ports:
+      - "8001:8001"
+
+    command: uvicorn api:app --reload --host 0.0.0.0 --port 8001
+    networks:
+      - mango_network
+  django:
+    image: mango_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+
+    volumes:
+      - .:/app
+    networks:
+      - mango_network
+
+networks:
+  mango_network:
+    name: mango_network
