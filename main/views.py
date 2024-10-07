@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.conf import settings
 import requests
 
 def index(request):
@@ -11,8 +12,12 @@ def index(request):
                 files = {'file': (file.name, file_data, file.content_type)}
 
                 # Make a request to FastAPI with the image
-                response = requests.post('http://127.0.0.1:8001/predict/', files=files)
-                
+                try:
+                    response = requests.post(f"{settings.FAST_API_DOCKER_HOST}/predict", files=files)
+
+                except Exception:
+                    response = requests.post(f"http://127.0.0.1:8001/predict/'", files=files)
+            
                 if response.status_code == 200:
                     prediction = response.json().get("prediction")
                     return render(request, 'results.html', {'prediction': prediction, 'filename': file.name})

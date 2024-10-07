@@ -1,0 +1,8 @@
+django
+fastapi
+uvicorn
+tensorflow
+python-multipart
+pillow
+numpy
+requests
