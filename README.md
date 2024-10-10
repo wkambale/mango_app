@@ -13,7 +13,70 @@ This is a web application that detects damages on mangoes using a TensorFlow mod
 - [Download the Model](https://bit.ly/pyconmodelh5)
 - [Colab Notebook](https://bit.ly/vgg19-model)
 - [Presentation Slides](https://speakerdeck.com/kambale/serving-machine-learning-models-in-django-with-fastapi)
-  
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+- [Docker](https://www.docker.com/get-started)
+
+## Installation (Docker)
+
+**Clone the repository:**
+
+```bash
+   git clone https://github.com/your-username/mango-damage-detection-app.git
+   cd mango-damage-detection-app
+```
+**Download the pre-trained TensorFlow model**:
+
+Place the `mango_model.h5` file into the `fastapi_app/model/` directory (you'll need to add the TensorFlow model file manually, as it is not part of this repository).
+
+**Build the Docker image**:
+
+Run the following command in the project root directory to build the Docker image:
+
+```bash
+docker-compose build
+```
+
+## Running the App
+
+**Start the containers**:
+
+Once the image is built, you can run the app using:
+
+```bash
+docker-compose up
+```
+This will start the following containers:
+
+A container for the Django web application.
+A container for FastAPI to serve the TensorFlow model predictions.
+
+**Access the application**:
+
+The Django app will be available at: `http://localhost:8000/`
+
+FastAPI will be available for prediction at: `http://localhost:8001/predict/`
+
+## API Endpoints
+**Django**
+`GET /`: The home page where you can upload an image and submit it for prediction.
+**FastAPI**
+`POST /predict/`: API endpoint to handle image prediction using the TensorFlow model.
+
+**Example usage with curl**:
+
+```bash
+curl -X POST "http://localhost:8001/predict/" \
+-H "accept: application/json" \
+-H "Content-Type: multipart/form-data" \
+-F "file=@path_to_image_file"
+```
+
+## Installation (Django, FastAPI)
+
 ## Requirements
 - Python 3.8 or above
 - Django 3.2+
@@ -21,15 +84,13 @@ This is a web application that detects damages on mangoes using a TensorFlow mod
 - TensorFlow 2.14+
 - Uvicorn (for running FastAPI)
 
-## Installation
-
-### Clone the repository
+**Clone the repository**
 
 ```bash
 git clone https://github.com/your-username/mango-app.git
 cd mango-app
 ```
-### Set up a virtual environment and activate it
+**Set up a virtual environment and activate it**
 
 ```bash
 # For Unix-based systems (Linux/MacOS)
@@ -40,31 +101,26 @@ source django-env/bin/activate
 python -m venv django-env
 django-env\Scripts\activate
 ```
-### Install the dependencies
+**Install the dependencies**
 ```bash
 pip install -r requirements.txt
 ```
-### Set up Django app
+**Set up Django app**
 ```bash
 python manage.py migrate
 ```
 
-### Run the Django server
+**Run the Django server**
 ```bash
 python manage.py runserver
 ```
 
-### Run the FastAPI app
+**Run the FastAPI app**
 In a separate terminal window, navigate to the project directory and run:
 
 ```bash
 uvicorn fastapi_app.api:app --reload --port 8001
 ```
-
-The FastAPI app will run at `http://127.0.0.1:8001`.
-
-### Access the application
-Open your browser and go to `http://127.0.0.1:8000/` to upload a mango image and get damage predictions.
 
 ## Contribution Guidelines
 We welcome contributions to the Mango Damage Detection App! Please follow these steps if you’d like to contribute:
