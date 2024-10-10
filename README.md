@@ -25,8 +25,8 @@ Make sure you have the following installed:
 **Clone the repository:**
 
 ```bash
-   git clone https://github.com/your-username/mango-damage-detection-app.git
-   cd mango-damage-detection-app
+   git clone https://github.com/your-username/mango_app.git
+   cd mango_app
 ```
 **Download the pre-trained TensorFlow model**:
 
@@ -87,7 +87,7 @@ curl -X POST "http://localhost:8001/predict/" \
 **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/mango-app.git
+git clone https://github.com/your-username/mango_app.git
 cd mango-app
 ```
 **Set up a virtual environment and activate it**
@@ -130,7 +130,7 @@ Fork the repository: Click the "Fork" button at the top right of this page to co
 Clone your forked repository: Use the command below to clone the forked repository to your local machine.
 
 ```bash
-git clone https://github.com/your-username/mango-app.git
+git clone https://github.com/your-username/mango_app.git
 ```
 Create a new branch: It’s good practice to create a new branch for each feature or bug fix you’re working on.
 
