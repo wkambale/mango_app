@@ -37,7 +37,7 @@ Place the `mango_model.h5` file into the `fastapi_app/model/` directory (you'll 
 Run the following command in the project root directory to build the Docker image:
 
 ```bash
-docker-compose build
+docker compose build
 ```
 
 ## Running the App
@@ -47,7 +47,7 @@ docker-compose build
 Once the image is built, you can run the app using:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 This will start the following containers:
 
